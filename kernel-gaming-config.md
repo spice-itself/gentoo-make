@@ -1,13 +1,6 @@
 # Оптимизация ядра Linux для игр
 
-## 1. Базовая подготовка
-
-Сначала установите необходимые инструменты:
-```bash
-sudo apt install build-essential libncurses-dev flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf
-```
-
-## 2. Конфигурация ядра
+## 1. Конфигурация ядра
 
 Основные параметры для оптимизации:
 
@@ -35,7 +28,7 @@ sudo apt install build-essential libncurses-dev flex bison openssl libssl-dev dk
 - CONFIG_NO_HZ_FULL=y
 - CONFIG_HIGH_RES_TIMERS=y
 
-## 3. Сборка ядра
+## 2. Сборка ядра
 
 ```bash
 # Копируем текущую конфигурацию
@@ -52,7 +45,7 @@ sudo make modules_install
 sudo make install
 ```
 
-## 4. Дополнительные оптимизации
+## 3. Дополнительные оптимизации
 
 В /etc/sysctl.conf добавьте:
 ```
@@ -61,7 +54,7 @@ vm.vfs_cache_pressure=50
 kernel.sched_autogroup_enabled=1
 ```
 
-## 5. Рекомендации по CPU governor
+## 4. Рекомендации по CPU governor
 
 Добавьте в /etc/default/grub:
 ```
